@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Qing&#39;s Journey</title>
+  <title>basic sql and advanced sql notes | Qing&#39;s Journey</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="test,test2" />
@@ -11,16 +11,18 @@
   
   
   
-  <meta name="description" content="Coding &amp; Modeling">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Qing&#39;s Journey">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="SQL SyntaxDATABASE: Database is a collection of data stored in some organized fashion.DATABASE MANAGEMENT SYSTEM(DBMS): Database software, we manipulate data vi">
+<meta name="keywords" content="SQL,Database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic SQL and Advanced SQL Notes">
+<meta property="og:url" content="http://yoursite.com/2017/01/02/02052018-1745/index.html">
 <meta property="og:site_name" content="Qing&#39;s Journey">
-<meta property="og:description" content="Coding &amp; Modeling">
+<meta property="og:description" content="SQL SyntaxDATABASE: Database is a collection of data stored in some organized fashion.DATABASE MANAGEMENT SYSTEM(DBMS): Database software, we manipulate data via DBMS.TABLE: Table is a structured file">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-02-11T19:07:02.881Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Qing&#39;s Journey">
-<meta name="twitter:description" content="Coding &amp; Modeling">
+<meta name="twitter:title" content="Basic SQL and Advanced SQL Notes">
+<meta name="twitter:description" content="SQL SyntaxDATABASE: Database is a collection of data stored in some organized fashion.DATABASE MANAGEMENT SYSTEM(DBMS): Database software, we manipulate data via DBMS.TABLE: Table is a structured file">
   
     <link rel="alternate" href="/atom.xml" title="Qing&#39;s Journey" type="application/atom+xml">
   
@@ -49,13 +51,13 @@
   <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
+    <link rel="stylesheet" href="/css/dialog.css">
   
 
   
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
-  
 
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
   
@@ -66,211 +68,107 @@
 
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
-  
-    <header id="header">
-
-	<!-- 背景图模式 -->
-	
-
-    
-      <div id="intrologo" class="intro-logo">
-    
- 
-
-
-    <canvas width="100%" height="100%"></canvas>
-    <script>
-      var c = document.getElementsByTagName('canvas')[0],
-          x = c.getContext('2d'),
-          w = window.innerWidth,
-          h = window.innerHeight,
-          pr = window.devicePixelRatio || 1,
-          f = 90,
-          q,
-          m = Math,
-          r = 0,
-          u = m.PI*2,
-          v = m.cos,
-          z = m.random
-      c.width = w*pr
-      c.height = h*pr
-      x.scale(pr, pr)
-      x.globalAlpha = 0.6
-
-      <!-- 折线Polyline背景 -->
-      
-		 function redraw(){
-		 	var pattern = Trianglify({
-				width: window.innerWidth,
-				height: window.innerHeight
-			});
-            pattern.canvas(c)
-        }
-        document.getElementById("intrologo").onclick = redraw
-        document.getElementById("intrologo").ontouchstart = redraw
-		redraw()
-      
-    </script>
-    
-
-    
-      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
-    
-
-        
-          <div class="homelogoback"  style="border: 1px solid #404040;" >
-            <h1><a href="#content" id="logo">Qing&#39;s Journey</a></h1>
-            <h3>Coding &amp; Modeling</h3>
-            <h5>Qing Wei</h5>
-            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
-          </div>
-        
-    
-    </div>
-  </div>
-
-  <!-- 自适应主页背景大图 -->
-  
-
- <!-- home_logo_image居中 -->
- 
-    <script>
-        var homelogodiv = document.getElementById("homelogo");
-        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
-          homelogodiv.style.width = document.body.clientWidth + "px";
-          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-        } else {
-          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
-          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
-        }
-    </script>
-  
-
-  <div class="intro-navigate">
-      <p class="navigater-list">
-        
-          <a id="beautifont" class="main-nav-link" href="/">Home</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/categories">Categories</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/about">About</a>
-        
-      </p>
-  </div>
-
-</header>
   
   <div id="container">
     <div id="wrap">
       
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-    <article id="post-02112018-1336"  class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-02052018-1745" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/02/11/02112018-1336/">02112018-1336</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/02/11/02112018-1336/" class="article-date">
-	  <time datetime="2018-02-11T18:36:45.000Z" itemprop="datePublished">2018-02-11</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-02012018-2301"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/02/01/02012018-2301/">给博客换模板 - From Jekyll To Hexo</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/02/01/02012018-2301/" class="article-date">
-	  <time datetime="2018-02-02T04:01:25.000Z" itemprop="datePublished">2018-02-01</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用Jekyll模板已经两年了，期间修修改改，已经完全看不出其中的结构，完全不想再碰。正好看中了更顺眼的Hexo Theme，干脆来个一次性大换血，也顺便整理一下这几年来的总结。</p>
-<p>Jekyll已经乱成了这样，大量的文件被放在总目录下，杂乱无章：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">builderqing.github.io-directory-tree/</span><br><span class="line">├── ._config.yml</span><br><span class="line">├── _data</span><br><span class="line">├── _includes</span><br><span class="line">├── _layouts</span><br><span class="line">├── _sass</span><br><span class="line">├── _templates</span><br><span class="line">├── dataset</span><br><span class="line">├── gallery</span><br><span class="line">├── image</span><br><span class="line">└── project</span><br></pre></td></tr></table></figure>
-<p>新建的Hexo使用了hiker theme，好看又好用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">builderqing.github.io-directory-tree/</span><br><span class="line">├── ._config.yml</span><br><span class="line">├── public</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jekyll/">Jekyll</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-02052018-1745"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/02/02052018-1745/">Basic SQL and Advanced SQL Notes</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Basic SQL and Advanced SQL Notes
     </h1>
   
 
@@ -452,82 +350,73 @@ and cl.ref_oid= cert.cert_id
     <footer class="article-footer">
       
       
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjEzMC84Njk0">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/">Database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
 
     </footer>
   </div>
   
-</article>
-
-<!-- Table of Contents -->
-
+    
+<nav id="article-nav">
   
-    <article id="post-03012016-1651"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2018/02/01/02012018-2301/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          给博客换模板 - From Jekyll To Hexo
+        
+      </div>
+    </a>
   
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/03/01/03012016-1651/">Robust and Optimal Stochastic Resource Allocation on Transportation Networks Subject to Disruptive Events</a>
-    </h1>
   
+    <a href="/2016/03/01/03012016-1651/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Robust and Optimal Stochastic Resource Allocation on Transportation Networks Subject to Disruptive Events</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/03/01/03012016-1651/" class="article-date">
-	  <time datetime="2016-03-01T21:51:37.000Z" itemprop="datePublished">2016-03-01</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- 
-[img id]: https://www.hdwallpapers.net/previews/water-plant-close-up-979.jpg  "Optional title attribute"
-![Alt text][img id] -->
-<blockquote>
-<p> The models I built for solving resource allocation problem on transportation networks. Different size of directed graphs have been considered, and comparison between models have been made. Python Gurobi is used to realize the optimization process.</p>
-</blockquote>
-<p>Resource allocation is the assignment of available resources to various uses, which is closely related to the network interdiction problem depends on our objects. The network interdiction problem ask to find a special number of edges whose removal from the network minimizes the maximum flow. Various examples could be found in areas such as military planning, hospital infection control or poison food interdiction. Our goals in such examples are the same: to determine the worst-case scenario, after the realization of uncertainty. </p>
-<blockquote class="pullquote right"><p>contentf af afajkhdfjk</p>
-</blockquote>
-<p>Imagine that there are refineries that process several million barrels of crude oil every day, and pipelines are used to transport crude oil to consumption centers. There are intermediate pump stations in long distance networks to keep the crude oil moving smoothly. However, pump stations and pipelines may be out of service. Hence, it is important to manage the oil transportation system in such a way that it is capable of coping with such situations and to reduce the amount of storage of crude oil at consumption centers as much as possible. </p>
-<p>The bold red lines in the above graphs are the critical edges that determines the maximum flow, assuming the realization of uncertainty. </p>
-  <svg viewbox="0 0 560 168" class="header-lockup"><br/>  <text transform="matrix(1 0 0 1 7 126.14385)"><tspan x="80" y="-45" font-family="Righteous" font-size="70px">QING</tspan><br/><br/><br/><svg viewbox="0 0 560 168" class="header-lockup"><br/><text transform="matrix(1 0 0 1 7 126.14385)"><tspan x="80" y="-45" font-family="Righteous" font-size="70px">QING</tspan><br/><br/><tspan x="150" y="28" font-family="Righteous" font-size="69px">JOURNAL</tspan><br/><br/></text><br/><br/><circle fill="#e64040" stroke="#e64040" stroke-width="4" cx="250" cy="91" r="22"/><br/><text class="words animate-right" transform="matrix(1 0 0 1 235.5 102.4)"><br/>  <tspan x="0" y="0" font-family="Pacifico" font-size="22px" fill="white">‘S</tspan><br/></text><br/><br/></svg>
-
-<p>```</p>
-</text></svg>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maximum-Flow/">Maximum Flow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Optimization/">Optimization</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 <!-- Table of Contents -->
 
-  
-
-
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-Syntax"><span class="nav-number">1.</span> <span class="nav-text">SQL Syntax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#‘Shipped’"><span class="nav-number"></span> <span class="nav-text">  ‘Shipped’);</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHERE-conditions-ORDER-BY-…-LIMIT-rows"><span class="nav-number"></span> <span class="nav-text">  [WHERE conditions] [ORDER BY …] [LIMIT rows]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHERE-conditions"><span class="nav-number"></span> <span class="nav-text">  [WHERE conditions]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Now-you-can-delete-records-associated-with-officeCode-5-from-both-offices-and-employees-tables"><span class="nav-number"></span> <span class="nav-text">  //Now, you can delete records associated with officeCode 5 from both offices and employees tables:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SET-column"><span class="nav-number"></span> <span class="nav-text">  SET column</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#References"><span class="nav-number">1.</span> <span class="nav-text">References:</span></a></li></ol>
+    
+    </div>
+  </aside>
 </section>
         
       </div>
-      
-        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
       
       <footer id="footer">
   
@@ -616,9 +505,9 @@ and cl.ref_oid= cert.cert_id
 <script src="/js/scripts.js"></script>
 
 
-  <script src="/js/home.js"></script>
 
 
+  <script src="/js/dialog.js"></script>
 
 
 
@@ -695,6 +584,8 @@ and cl.ref_oid= cert.cert_id
   
   <a id="rocket" href="#top" class=""></a>
   <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
   
 </body>
 </html>
